@@ -1,0 +1,359 @@
+<div class="container_Content">
+    <div class="container-Content-Stages" style="margin:0;padding:0;height: 87px;">
+        <div class="container-Content-options-1" style="margin:0;padding:0;padding-top: 10px;">
+            <img style="cursor: pointer;" (click)="ContainerBVN()" src="assets/images/icons8-security-shield-64.png" width="40" height="40" />
+            <p (click)="ContainerBVN()" style="color:#fff;cursor: pointer;">Bank Verification Number</p>
+        </div>
+
+        <div class="container-Content-options-2" style="margin:0;padding:0;padding-top: 10px;">
+            <img style="cursor: pointer;" (click)="ContainerPersonalDetails()" src="assets/images/icons8-user-90.png" width="40" height="40" />
+            <p (click)="ContainerPersonalDetails()" style="color:#fff;cursor: pointer;">Personal Details</p>
+        </div>
+
+        <div class="container-Content-options-4" style="margin:0;padding:0;padding-top: 10px;">
+            <img style="cursor: pointer;" (click)="ContainerAccountDetails()" src="assets/images/icons8-debit-card-64.png" width="40" height="40" />
+            <p (click)="ContainerAccountDetails()" style="color:#fff;cursor: pointer;">Loan/Account Details</p>
+        </div>
+
+        <div class="container-Content-options-5" style="margin:0;padding:0;padding-top: 10px;">
+            <img style="cursor: pointer;" (click)="ContainerSummary()" src="assets/images/icons8-document-64-search.png" width="40" height="40" />
+            <p (click)="ContainerSummary()" style="color:#fff;border-bottom: 5px #fff solid;cursor: pointer;">Summary</p>
+        </div>
+
+        <div class="container-Content-options-6" style="margin:0;padding:0;padding-top: 10px;">
+            <img src="assets/images/icons8-ok-24-opacity.png" width="40" height="40" />
+            <p>Completed</p>
+        </div>
+    </div>
+
+    <div *ngIf="this.ProfileDetails != null && this.ProfileDetails.userProfileDetails!=null" class="content_1">
+        <div class="signin-title" style="display:flex;align-items:center;margin-left: 40px;margin-right: 40px;">
+            <div class="image" style="flex-basis:20%;padding-top: 10px;">
+                <button (click)="this.onBackWard($event)" style="background-color: transparent;border: 0px solid transparent;cursor: pointer;"> <img style="padding-left: 10px;" width="20" src="assets/images/icons8-arrow-96-green.png" /></button>
+            </div>
+            <div class="text" style="color: #000000;padding-left: 20px;text-align: center;">
+                <h3>Review your loan application details before proceeding</h3>
+            </div>
+        </div>
+
+        <!-- <div class="signin-title">
+          <button (click)="onBackWard($event)" style="background-color: transparent;border: 0px solid transparent;cursor: pointer;margin-top: 30px;">
+              <img width="40" src="assets/images/icons8-arrow-96-green.png" />
+          </button>
+          <h2></h2>
+          <p><span>Fill in the required space.</span></p>
+      </div> -->
+
+        <div class="signin-form">
+            <form action="#" method="post" enctype="multipart/form-data" role="form">
+
+                <div class="form-group">
+                    <br/>
+                    <br/>
+                    <label style="font-weight:450;margin-top:30px;font-size:17px;color: #f97c00;"><b>Customer Information</b></label>
+                    <br/>
+                </div>
+
+                <div class="form-group">
+                    <p>
+                        <!-- <span>Full Name:</span> <span class="span1">{{FullNume}}</span> -->
+                        <span> Full Name:</span> <span class="span1">{{BvnFirstName}} {{BvnMiddleName}} {{BvnLastName}}</span>
+                    </p>
+                </div>
+
+                <div class="form-group">
+                    <p>
+                        <span> Email Address:</span> <span class="span1">{{PersonalEmail}}</span>
+                    </p>
+                </div>
+
+                <div class="form-group">
+                    <p>
+                        <span> Business Segment:</span><span class="span1">{{this.CusBusinessSegmentText}}</span>
+                    </p>
+                </div>
+
+                <div class="form-group">
+                    <p>
+                        <span> Ministry:</span><span class="span1">{{this.CusBusinessTypeText}}</span>
+                    </p>
+                </div>
+
+                <div *ngIf="this.ProfileDetails != null && this.ProfileDetails.userProfileDetails!=null" class="form-group">
+                    <p>
+                        <span> Employment Date:</span> <span class="span1">{{this.ProfileDetails.userProfileDetails.employmentDate}}</span>
+                    </p>
+                </div>
+
+                <div *ngIf="this.ProfileDetails != null && this.ProfileDetails.userProfileDetails!=null" class="form-group">
+                    <p>
+                        <span> Retirement Date:</span> <span class="span1">{{this.ProfileDetails.userProfileDetails.retirementDate}}</span>
+                    </p>
+                </div>
+
+                <div class="form-group">
+                    <p>
+                        <span> Phone Number:</span> <span class="span1">{{PernalPhone}}</span>
+                    </p>
+                </div>
+
+                <!-- <div class="form-group">
+                  <p>
+                      <span> Client Type:</span> <span class="span1">{{ClientType}}</span>
+                  </p>
+              </div> -->
+
+                <div class="form-group">
+                    <p>
+                        <span> City:</span><span class="span1">{{this.CusCityName}}</span>
+                    </p>
+                </div>
+                <div class="form-group">
+                    <p>
+                        <span> State:</span><span class="span1">{{this.CusStateName}}</span>
+                    </p>
+                </div>
+
+
+                <div class="form-group">
+                    <br/>
+                    <label style="font-weight:450;margin-top:30px;font-size:17px;color: #f97c00;"><b>BVN Details</b></label>
+                    <br/>
+                </div>
+
+                <div class="form-group">
+                    <p>
+                        <span> BVN:</span><span class="span1">{{BvnBVN}}</span>
+                    </p>
+                </div>
+
+                <div class="form-group">
+                    <p>
+                        <span> Full Name:</span> <span class="span1">{{BvnFirstName}} {{BvnMiddleName}} {{BvnLastName}}</span>
+                    </p>
+                </div>
+
+                <!-- 
+              <div class="form-group">
+                  <br/>
+                  <label style="font-weight:450;margin-top:30px;font-size:17px;color: #f97c00;"><b>IPPIS Net-Pay Details</b></label>
+                  <br/>
+              </div>  -->
+
+                <!-- <div class="form-group">
+                  <p>
+                      <span>Full Name:</span><span class="span1">{{LoFullName}}</span>
+                  </p>
+              </div> -->
+
+                <div class="form-group">
+                    <p>
+                        <span> Employee Number:</span><span class="span1">{{LoPFNumber}}</span>
+                    </p>
+                </div>
+
+                <div class="form-group">
+                    <p>
+                        <span> Date-Of-Birth:</span><span class="span1">{{LoDateOfBirth}}</span>
+                    </p>
+                </div>
+
+                <div class="form-group">
+                    <p>
+                        <span> Phone Number:</span><span class="span1">{{LoPhoneNumber}}</span>
+                    </p>
+                </div>
+
+                <div class="form-group">
+                    <p>
+                        <span> Alternative Phone Number:</span><span class="span1">{{LoAltPhoneNumber}}</span>
+                    </p>
+                </div>
+
+                <div class="form-group">
+                    <p>
+                        <span> Marital Status:</span><span class="span1">{{LoMaritalStatus}}</span>
+                    </p>
+                </div>
+
+                <div class="form-group">
+                    <p>
+                        <span> Residential Address:</span><span class="span1">{{LoResidentialAddress}}</span>
+                    </p>
+                </div>
+
+                <div class="form-group">
+                    <br/>
+                    <label style="font-weight:450;margin-top:30px;font-size:17px;color:#f97c00;"><b>Next-Of-Kin Details</b></label>
+                    <br/>
+                </div>
+
+                <div class="form-group">
+                    <p>
+                        <span> Full Name:</span><span class="span1">{{nkFullName}}</span>
+                    </p>
+                </div>
+
+                <div class="form-group">
+                    <p>
+                        <span> Phone Number:</span><span class="span1">{{nkPhoneNumer}}</span>
+                    </p>
+                </div>
+
+                <div class="form-group">
+                    <p>
+                        <span> Address:</span><span class="span1">{{nkAddress}}</span>
+                    </p>
+                </div>
+
+                <div class="form-group">
+                    <p>
+                        <span> Relationship:</span><span class="span1">{{nkRelationShip}}</span>
+                    </p>
+                </div>
+
+                <div class="form-group">
+                    <br/>
+                    <label style="font-weight:450;margin-top:30px;font-size:17px;color: #f97c00;"><b>Relationship Officer</b></label>
+                    <br/>
+                </div>
+
+                <div class="form-group">
+                    <p>
+                        <span>Full Name:</span><span class="span1">{{OfficerFirstName}}</span>
+                    </p>
+                </div>
+
+                <div class="form-group">
+                    <br/>
+                    <label style="font-weight:450;margin-top:30px;font-size:17px;color: #f97c00;"><b>Loan Repayment and Salary Account Details</b></label>
+                    <br/>
+                </div>
+
+                <div class="form-group">
+                    <p>
+                        <span>Reason for this loan:</span><span class="span1">{{Reasonforthisloan}}</span>
+                    </p>
+                </div>
+
+                <div *ngIf="this.LoanScheduleData != undefined" class="form-group">
+                    <p>
+                        <span>Tenure: </span> <span class="span1">{{this.LoanScheduleData.teunerName}}</span>
+                    </p>
+                </div>
+
+                <div class="form-group">
+                    <p>
+                        <span>Loan Amount:</span><span class="span1">{{FormarttedAmount}}</span>
+                    </p>
+                </div>
+
+                <!-- <span class="span1">{{this.LoanScheduleData.interestPayment1}}</span>, -->
+                <div *ngIf="this.LoanScheduleData != undefined" class="form-group">
+                    <p>
+                        <span>Rate:</span> <span class="span1">{{this.LoanScheduleData.interest}}%</span>
+                    </p>
+                </div>
+
+                <div *ngIf="this.LoanScheduleData != undefined" class="form-group">
+                    <p>
+                        <span>Total Interest Amount: </span> <span class="span1">{{this.LoanScheduleData.interestPayment}}</span>
+                    </p>
+                </div>
+
+                <div *ngIf="this.LoanScheduleData != undefined" class="form-group">
+                    <p>
+                        <span>Total Repayment Amount: </span><span class="span1">{{this.LoanScheduleData.totalAmount}}</span>
+                    </p>
+                </div>
+
+                <div *ngIf="this.LoanScheduleData != undefined" class="form-group">
+                    <p>
+                        <span>Last Repayment Date: </span><span class="span1">{{this.LoanScheduleData.dueDate}}</span>
+                        <!-- <span>,  Time: </span><span class="span1">{{this.LoanScheduleData.dueTime}}</span> -->
+                    </p>
+                </div>
+
+                <div *ngIf="this.LoanScheduleData != undefined" class="form-group">
+                    <p>
+                        <span>Number Of Repayment: </span><span class="span1">{{this.LoanScheduleData.numberOfPayments}}</span>
+                    </p>
+                </div>
+
+                <div *ngIf="this.LoanScheduleData != undefined" class="form-group">
+                    <p>
+                        <span>Repayment Scheduled:</span>
+                    </p>
+                </div>
+
+                <div *ngIf="this.LoanScheduleData != undefined" class="form-group">
+                    <div style="height:125px;overflow:auto;">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th class="th-sm" style="color: #000;padding-left: 10px;padding-right: 10px;">No</th>
+                                    <th class="th-sm" style="color: #000;padding-left: 10px;padding-right: 10px;">Repayment</th>
+                                    <th class="th-sm" style="color: #000;padding-left: 10px;padding-right: 10px;">Scheduled Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of this.LoanScheduleData.scheduledList" style="margin-top:10px;margin-bottom:10px;">
+                                    <td style="color: #000;padding-left: 10px;padding-right: 10px;">{{item.no}}</td>
+                                    <td style="color: #000;padding-left: 10px;padding-right: 10px;">{{item.loanAmountWithCurrency}}</td>
+                                    <td style="color: #000;padding-left: 10px;padding-right: 10px;">{{item.nextSchedeledDate}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- <div class="form-group">
+                  <p>
+                      <span>Loan Tenure:</span><span class="span1">{{LsTenor}}</span>
+                  </p>
+              </div> -->
+
+                <div class="form-group">
+                    <p>
+                        <span>Bank Name:</span><span class="span1">{{LsBankName}}</span>
+                    </p>
+                </div>
+
+                <div class="form-group">
+                    <p>
+                        <span>Account Name:</span><span class="span1">{{LsAcctName}}</span>
+                    </p>
+                </div>
+
+                <div class="form-group">
+                    <p>
+                        <span>Account Number:</span><span class="span1">{{AcctNumber}}</span>
+                    </p>
+                </div>
+
+                <div class="container" style="padding-top:5px;background-color:transparent;padding-bottom:5px;">
+
+                    <input type="checkbox" (change)="onAcceptedLoan($event)" required />
+                    <span>
+                      <a style="text-align: left;background-color: transparent;font-size: 15px;" target="_blank" href="https://www.lapo-nigeria.org/lapo-privacy-policy"> I have read and accept the Terms and Conditions</a>
+                  </span>
+
+                </div>
+
+                <div class="form-group" style="padding-top: 30px;background-color: transparent;">
+                    <input type="button" (click)="onContinue($event)" class="form-control-btn" value="Apply Now" />
+                </div>
+                <div class="form-group">
+                    <div class="acct-1">
+                    </div>
+                    <div class="acct-2">
+
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+<app-spinner></app-spinner>
+<router-outlet></router-outlet>

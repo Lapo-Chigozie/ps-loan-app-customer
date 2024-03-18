@@ -1,0 +1,393 @@
+html {
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Segoe UI';
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+    background-color: #fff;
+}
+
+.container_Header .ineardiv1 {
+    width: 100%;
+    position: absolute;
+}
+
+.ineardiv1 .logo_content {
+    background-color: transparent;
+    width: 20%;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    float: left;
+    text-align: center;
+}
+
+.ineardiv1 .menu_content {
+    background-color: transparent;
+    width: 80%;
+    padding-bottom: 0px;
+    padding-top: 0px;
+    float: left;
+}
+
+.menu_content .h_ul_div_1 {
+    background-color: transparent;
+    width: 60%;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    float: left;
+}
+
+.menu_content .h_ul_div_2 {
+    background-color: transparent;
+    width: 40%;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    float: left;
+}
+
+.menu_content .h_ul_div_1 ul {
+    text-align: center;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.menu_content .h_ul_div_2 ul {
+    text-align: center;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.menu_content .h_ul_div_1 ul li {
+    padding-left: 1px;
+    padding-right: 1px;
+    display: inline;
+    text-decoration: none;
+}
+
+.menu_content .h_ul_div_1 ul li a :before {
+    content: attr(data-hover);
+    color: rgb(52, 30, 248);
+    transition: opacity 1s ease-in-out;
+}
+
+.menu_content .h_ul_div_1 ul li a {
+    padding-left: 5px;
+    padding-right: 5px;
+    text-decoration: none;
+    font-size: 13px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 200;
+    color: black;
+}
+
+.menu_content .h_ul_div_2 ul li {
+    padding-left: 1px;
+    padding-right: 1px;
+    display: inline;
+    text-decoration: none;
+}
+
+.menu_content .h_ul_div_2 ul li a {
+    padding-left: 5px;
+    padding-right: 5px;
+    text-decoration: none;
+    font-size: 14px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 200;
+}
+
+.menu_content .h_ul_div_2 ul li .app_loan_btn {
+    background-color: #f97c00;
+    color: #fff;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 12px;
+    border-radius: 30px;
+}
+
+.menu_content .h_ul_div_2 ul li .app_sign_btn {
+    background-color: hsl(120, 87%, 15%);
+    color: #fff;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 12px;
+    border-radius: 30px;
+}
+
+.container_Content {
+    width: 100%;
+    background-color: #fff;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 750px;
+    position: relative;
+    border-top: 1px #9d9d9d4f solid;
+    margin-top: 85px;
+}
+
+.container_Content .content_1 {
+    background-color: white;
+    padding-bottom: 20px;
+    margin-right: 0px;
+    margin-top: 70px;
+    position: absolute;
+    width: 45%;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.signin-title {
+    width: 100%;
+}
+
+.signin-title h2 {
+    padding-left: 2px;
+    padding-right: 2px;
+    margin-right: 2px;
+    margin-left: 2px;
+    font-size: 23px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 500;
+    text-align: center;
+}
+
+.signin-title p {
+    padding-left: 2px;
+    padding-right: 2px;
+    margin-right: 2px;
+    margin-left: 2px;
+    font-size: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 400;
+    text-align: center;
+}
+
+.signin-form {
+    padding-top: 10px;
+    padding-bottom: 20px;
+    padding-right: 50px;
+    padding-left: 50px;
+}
+
+.signin-form .form-group {
+    font-size: 12px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 400;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.signin-form .form-group label {
+    font-size: 12px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 400;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: #000000;
+}
+
+.signin-form .form-group .form-control {
+    font-size: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 400;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: #000000;
+    margin-top: 10px;
+    padding: 10px 10px 10px 10px;
+    width: 95%;
+}
+
+.signin-form .form-group .form-control-ValidationCode {
+    font-size: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 400;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: #000000;
+    padding: 10px 10px 10px 10px;
+    width: 25px;
+    text-align: center;
+}
+
+.signin-form .form-group .Rememberme {
+    font-size: 15px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 400;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: #000000;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    top: 5;
+}
+
+.signin-form .form-group .Rememberme .form-control-check {
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    width: 20px;
+    height: 20px;
+}
+
+.signin-form .form-group .form-control-btn {
+    background-color: #f97c00;
+    font-size: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 400;
+    color: #ffffff;
+    width: 100%;
+    border: 0px solid #f97c00;
+    border-radius: 3px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    margin-top: 1rem;
+    pointer-events: auto;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    white-space: nowrap;
+    border-radius: 6px;
+    cursor: pointer;
+    border: none;
+    appearance: none;
+    color: rgb(255, 255, 255);
+    font-weight: 400;
+    opacity: 0.95;
+    padding: 0px;
+    background-image: linear-gradient(286deg, rgb(76, 160, 252) 23%, rgb(224, 47, 238) 76%);
+    transition: all 0.3s ease 0s;
+    position: relative;
+    padding: 10px 10px 10px 10px;
+}
+
+.signin-form .form-group .acct-1 {
+    text-align: right;
+    font-size: 13px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 400;
+}
+
+.signin-form .form-group .acct-2 {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+    font-size: 13px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 400;
+}
+
+.footer {
+    height: 350px;
+    background-color: #181111;
+    margin-top: 25px;
+    padding-top: 25px;
+    /* for the top margin to stretch the whole page */
+    /* if you want to stretch the page at a specific size */
+    padding-bottom: 40px;
+    width: 100%;
+}
+
+.footer div {
+    width: 25%;
+    float: left;
+    color: #fff;
+    padding-top: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.footer div h3 {
+    width: 100%;
+    color: #f97c00;
+    padding-top: 10px;
+    padding-left: 2px;
+    padding-right: 2px;
+    font-size: 18px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600;
+}
+
+.footer div p {
+    width: 100%;
+    padding-top: 0px;
+    padding-left: 2px;
+    padding-right: 2px;
+    font-size: 13px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600;
+}
+
+.footer-1 {
+    background-color: #181111;
+    /* for the top margin to stretch the whole page */
+    /* if you want to stretch the page at a specific size */
+    width: 100%;
+    height: 50px;
+}
+
+.footer-1 div {
+    width: 50%;
+    float: left;
+    color: #fff;
+    height: 50px;
+    text-align: center;
+}
+
+.footer-1 div p {
+    color: #fff;
+    padding-left: 0px;
+    padding-right: 0px;
+    text-align: left;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.footer-1 div p a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}

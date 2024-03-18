@@ -1,0 +1,53 @@
+<div class="container_Content">
+    <div class="container-Content-Stages" style="margin:0;padding:0;height: 87px;">
+        <div class="container-Content-options-1" style="margin:0;padding:0;padding-top: 10px;">
+            <img src="assets/images/icons8-security-shield-64.png" width="40" height="40" />
+            <p style="color:#fff;">Bank Verification Number</p>
+        </div>
+
+        <div class="container-Content-options-2" style="margin:0;padding:0;padding-top: 10px;">
+            <img src="assets/images/icons8-user-90.png" width="40" height="40" />
+            <p style="color:#fff;">Personal Details</p>
+        </div>
+
+        <div class="container-Content-options-4" style="margin:0;padding:0;padding-top: 10px;">
+            <img src="assets/images/icons8-debit-card-64.png" width="40" height="40" />
+            <p style="color:#fff;">Loan/Account Details</p>
+        </div>
+
+        <div class="container-Content-options-5" style="margin:0;padding:0;padding-top: 10px;">
+            <img src="assets/images/icons8-document-64-search.png" width="40" height="40" />
+            <p style="color:#fff;">Summary </p>
+        </div>
+
+        <div class="container-Content-options-6" style="margin:0;padding:0;padding-top: 10px;">
+            <img src="assets/images/icons8-ok-24.png" width="40" height="40" />
+            <p style="color:#fff;border-bottom: 5px #fff solid">Completed</p>
+        </div>
+    </div>
+
+    <div class="content_1">
+
+        <div *ngIf="success" class="backgroundCenter" style="top:300">
+            <div *ngIf="success" style="margin-top:100px;text-align:center;">
+                <p *ngIf="success">
+                    <img src="assets/images/{{imageName}}" width="80" height="80" />
+                </p>
+
+                <p *ngIf="success" style="font-size: 25px;font-weight: 800;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;">{{statusTitle}}</p>
+
+                <p *ngIf="success" style="font-size: 16px;font-weight: 400;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;">{{statusMessge}}</p>
+
+                <p *ngIf="this.IsSessionActive==true" style="font-size: 19px;font-weight: 400;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;">
+                    <a style="font-size: 17px;font-weight: 400;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;" href="{{LoginLink}}">Go to Dashboard</a>
+                </p>
+
+                <p *ngIf="this.IsSessionActive==false" style="font-size: 19px;font-weight: 400;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;">
+                    <a style="font-size: 17px;font-weight: 400;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;" href="{{LoginLink}}">Login to your Dashboard</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<app-spinner></app-spinner>
+<router-outlet></router-outlet>

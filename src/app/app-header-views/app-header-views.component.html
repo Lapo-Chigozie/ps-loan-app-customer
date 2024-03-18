@@ -1,0 +1,35 @@
+<div id="navbar" class="container_Header">
+    <div class="ineardiv1">
+        <div class="logo_content">
+            <a [routerLink]="['Home']" routerLinkActive="router-link-active">
+                <img src="../../assets/images/headerlogo.png" width="200" height="60" />
+            </a>
+        </div>
+
+        <div class="menu_content">
+            <div class="h_ul_div_1">
+                <ul class="h_ul_list_1">
+                    <li><a [routerLink]="['/Home']" routerLinkActive="router-link-active">Home</a></li>
+                    <!-- <li><a href="/index.html">Business Loan</a></li> -->
+                    <!-- <li><a href="/index.html">Company</a></li> -->
+                    <li><a href="https://www.lapo-nigeria.org/sustainability-statement">Sustainability</a></li>
+                    <li><a href="https://www.lapo-nigeria.org/about/our-impact">Our Impact</a></li>
+                    <li><a href="https://www.lapo-nigeria.org/about-us">About Us</a></li>
+                    <li><a href="https://www.lapo-nigeria.org/customer-services">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <!-- [routerLink]="['/loanbvnapp', { IsLoanApp: true }]" routerLinkActive="router-link-active" -->
+
+            <div class="h_ul_div_2">
+                <ul class="h_ul_list_2">
+                    <li *ngIf="showApply"><a (click)="this.GotoLoan()" class="app_loan_btn" style="cursor: pointer;">Apply Now</a></li>
+                    <li *ngIf="showSignIn"><a (click)="clickSignInLink($event)" class="app_sign_btn" style="margin-left: 10px;cursor: pointer;">Sign In</a></li>
+                    <li *ngIf="showsignup"><a [routerLink]="['/signup', { IsLoanApp: false }]" routerLinkActive="router-link-active" class="app_sign_btn" style="margin-left: 10px;">Sign Up</a></li>
+                    <li *ngIf="IsSign"><a (click)="clickSignOut($event)" class="app_sign_btn" style="margin-left:10px;cursor:pointer;background-color: #fff;color: #ed0c0c;">Sign Out</a></li>
+                    <li *ngIf="IsSign" style="margin-left:30px;"><a (click)="onDashboard($event)" class="app_sign_btn" style="margin-left:5px;cursor: pointer;background-color:#74747471;color: #000;">Dashboard</a><span style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-size:10px;font-weight:800;color:#000;margin-left:5px;">{{ProfileName}}</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

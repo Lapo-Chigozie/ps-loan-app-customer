@@ -1,0 +1,283 @@
+<div (load)="this.LoadAllBankLists()" class="container_Content">
+
+    <div class="container-Content-Stages" style="margin:0;padding:0;height: 87px;">
+        <div class="container-Content-options-1" style="margin:0;padding:0;padding-top: 10px;">
+            <img style="cursor: pointer;" (click)="ContainerBVN()" src="assets/images/icons8-security-shield-64.png" width="40" height="40" />
+            <p (click)="ContainerBVN()" style="color:#fff;cursor: pointer;">Bank Verification Number</p>
+        </div>
+
+        <div class="container-Content-options-2" style="margin:0;padding:0;padding-top: 10px;">
+            <img (click)="ContainerPersonalDetails()" style="cursor: pointer;" src="assets/images/icons8-user-90.png" width="40" height="40" />
+            <p (click)="ContainerPersonalDetails()" style="color:#fff;cursor: pointer;">Personal Details</p>
+        </div>
+
+        <div class="container-Content-options-4" style="margin:0;padding:0;padding-top: 10px;">
+            <img (click)="ContainerAccountDetails()" style="cursor: pointer;" src="assets/images/icons8-debit-card-64.png" width="40" height="40" />
+            <p (click)="ContainerAccountDetails()" style="color:#fff;  border-bottom: 5px #fff solid;cursor: pointer;">Loan Application</p>
+        </div>
+
+        <div class="container-Content-options-5" style="margin:0;padding:0;padding-top: 10px;">
+            <img (click)="ContainerSummary()" style="cursor: pointer;" src="assets/images/icons8-document-64-search-opacity.png" width="40" height="40" />
+            <p (click)="ContainerSummary()" style="cursor: pointer;">Summary</p>
+        </div>
+
+        <div class="container-Content-options-6" style="margin:0;padding:0;padding-top: 10px;">
+            <img src="assets/images/icons8-ok-24-opacity.png" width="40" height="40" />
+            <p>Completed</p>
+        </div>
+    </div>
+
+    <div class="content_1">
+
+        <div class="signin-title" style="display:flex;align-items:center;margin-left: 40px;margin-right: 40px;">
+            <div class="image" style="flex-basis:20%;padding-top: 10px;">
+                <button (click)="this.onBackWard($event)" style="background-color: transparent;border: 0px solid transparent;cursor: pointer;"> <img style="padding-left: 10px;" width="20" src="assets/images/icons8-arrow-96-green.png" /></button>
+            </div>
+            <div class="text" style="color: #000000;padding-left: 20px;text-align: center;">
+                <h3>Loan & Bank Account Details</h3>
+            </div>
+        </div>
+
+        <!-- <div class="signin-title">
+          <button (click)="onBackWard($event)" style="background-color: transparent;border: 0px solid transparent;cursor: pointer;margin-top: 30px;">
+              <img width="40" src="assets/images/icons8-arrow-96-green.png" />
+          </button>
+
+          <p><span>Fill in the required space.</span></p>
+      </div> -->
+        <div class="signin-form">
+            <form action="#" method="post" enctype="multipart/form-data" role="form">
+                <br/>
+                <div style="background-color:#f97c00;width:100%;">
+                    <p style="color:#fff;font-size:14px;padding-left:15px;padding-right:15px;padding-bottom:10px;padding-top:10px;font-weight:500;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Your are eligible to take loan between {{MinLoanAmount}} - {{MaxLoanAmount}}</p>
+                </div>
+                <div class="form-group">
+                    <div class="pfn-2">
+                        <label for="loanAmount">Loan Amount</label>
+                        <br/>
+                        <input type="number" (input)="onLoanAmountChange($event)" [(ngModel)]="loanAmount" required class="form-control-divide" id="loanAmount" name="loanAmount" placeholder="e.g 100,000" />
+                    </div>
+                    <div class="pfn-2">
+                        <label for="loanTenure ">Select Loan Tenure</label>
+                        <br/>
+                        <select (change)="onLoanTenureChanged($event)" [(ngModel)]="loanTenure" class="form-control-divide-select" required id="loanTenure" name="loanTenure">
+                          <option selected="selected" value="0">---Select--Loan--Tenure---</option>                          
+                          <option *ngFor="let tnr of this.LoanTenuresList" value="{{tnr.id}}">{{tnr.name}}</option>
+                      </select>
+                        <div *ngIf="LayoutRepaymentScheduled" class="tooltip">
+                            <input class="tooltip" (click)="onViewScheduled($event)" type="button" value="View Schedule" style="color: rgb(0, 0, 0); background-color: #8181819b; cursor: pointer;border: 0px #f97c00 solid;font-size: 11px; box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.107);padding-top: 5px;padding-bottom: 5px;padding-right: 10px;padding-left: 10px;border-radius: 5px;"
+                            />
+                            <div *ngIf="this.ViewScheduleding" class="tooltiptext">
+                                <div class="">
+                                    <label style="font-weight:700;color:#000;font-size: 17px;color: #ff840a;" for="loanAmount">Loan Repayment</label>
+                                    <br/>
+                                </div>
+                                <div class="">
+                                    <p style="font-weight:400;color:#000;font-size: 13px;">
+                                        <b>Tenure: </b> <span>{{this.LoanScheduleData.teunerName}}</span>
+                                    </p>
+
+                                    <p style="font-weight:400;color:#000;font-size: 13px;">
+                                        <!-- <span>{{this.LoanScheduleData.interestPayment1}}</span> -->
+                                        <b>Rate: </b> <span>({{this.LoanScheduleData.interest}}%)</span>
+                                    </p>
+
+                                    <p style="font-weight:400;color:#000;font-size: 13px;">
+                                        <b>Total Interest Amount: </b> <span>{{this.LoanScheduleData.interestPayment}}</span>
+                                    </p>
+
+                                    <p style="font-weight:400;color:#000;font-size: 13px;">
+                                        <b>Total Repayment Amount: </b> <span>{{this.LoanScheduleData.totalAmount}}</span>
+                                    </p>
+
+                                    <p style="font-weight:400;color:#000;font-size: 13px;">
+                                        <b>Last Repayment Date: </b> <span>{{this.LoanScheduleData.dueDate}}</span>
+                                        <!-- <b>, Time: </b> <span>{{this.LoanScheduleData.dueTime}}</span> -->
+                                    </p>
+
+                                    <p style="font-weight:400;color:#000;font-size: 13px;">
+                                        <b>Number Of Repayment: </b> <span>{{this.LoanScheduleData.numberOfPayments}}</span>
+                                    </p>
+
+                                    <p style="font-weight:400;color:#000;font-size: 13px;margin-top: 15px;padding-left:10px;padding-right: 10px;">
+                                        <b>Repayment Scheduled: </b>
+                                    </p>
+
+                                    <div style="height:80px;overflow:auto;">
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th class="th-sm" style="color: #000;padding-left: 10px;padding-right: 10px;">No</th>
+                                                    <th class="th-sm" style="color: #000;padding-left: 10px;padding-right: 10px;">Repayment</th>
+                                                    <th class="th-sm" style="color: #000;padding-left: 10px;padding-right: 10px;">Scheduled Date</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor="let item of this.LoanScheduleData.scheduledList" style="margin-top:10px;margin-bottom:10px;">
+                                                    <td style="color: #000;padding-left: 10px;padding-right: 10px;">{{item.no}}</td>
+                                                    <td style="color: #000;padding-left: 10px;padding-right: 10px;">{{item.loanAmountWithCurrency}}</td>
+                                                    <td style="color: #000;padding-left: 10px;padding-right: 10px;">{{item.nextSchedeledDate}}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <br/>
+                <br/>
+                <h3 style="font-weight:400;color:#000;"></h3>
+                <br/>
+
+                <div class="form-group dropdown">
+                    <label for="acctNumber">
+                      <h3 style="font-weight:400;color:#000;">Relationship Officer (Optional)
+                      </h3>
+                      <br/> Search for Relationship Officer
+                      <img *ngIf="this.IsProgressBarShowing" src="assets/images/small_icon.gif" width="20" />
+                  </label>
+                    <br/>
+                    <!-- <br/> (keyup.delete)="this.onTeamMemberChange($event, $event.target)" (keyup.delete)="this.onTeamMemberChange($event, $event.target)" (keyup.backspace)="this.onTeamMemberChange($event, $event.target)" (keydown.enter)="this.onTeamMemberChange($event,
+                  $event.target)" (keyup.enter)="this.onTeamMemberChange($event, $event.target)" (keypress)="this.onTeamMemberChange($event, $event.target)" (keypress.enter)="this.onTeamMemberChange($event, $event.target)" (paste)="this.onTeamMemberChange($event,
+                  $event.target)" -->
+                    <input (input)="this.onTeamMemberChange($event, $event.target)" type="text" [(ngModel)]="RelationshipOfficerFirstName" class="form-control" id="OfficerFirstName" name="OfficerFirstName" placeholder="Search for Relationship Officer" />
+                    <p *ngIf="this.IsErrorHappen" style="color: #d30919;font-size: 12px;">
+                        <span style="color: #e80d1f;">Relationship Officer not found</span>
+                    </p>
+                    <div *ngIf="this.listDivisionTeamList!= null && this.listDivisionTeamList != undefined && this.listDivisionTeamList.length > 0" id="myDropdown" class="dropdown-content" style="width:100%;">
+                        <a *ngFor="let item of this.listDivisionTeamList" (click)="onClickDivisionTeamEventHandler($event, item)">{{item.itemName}} - ({{item.item_Title_Desc}}) ({{item.bu}})</a>
+                    </div>
+                    <input type="hidden" [(ngModel)]="RelationshipOfficerOtherName" class="form-control" id="OfficerOtherName" name="OfficerOtherName" placeholder="Enter Relationship Officer Last name" />
+                    <input type="hidden" [(ngModel)]="RelationshipOfficerRef" class="form-control" name="RelationshipOfficerRe" placeholder="Enter Relationship Officer Last name" />
+                </div>
+
+                <br/>
+                <h3 style="font-weight:400;color:#000; "></h3>
+                <br/>
+
+                <div class="form-group">
+                    <label for="acctNumber">
+                      <h3 style="font-weight:400;color:#000;">Bank Account Details</h3>
+                      <!-- <br/> Account Number -->
+                  </label>
+                    <!-- <br/> -->
+                    <!-- <br/> (keyup)="onAcctNumberChange($event)" (paste)="onPasteAcctNumberChange($event)" -->
+                    <!-- <input type="number" [(ngModel)]="acctNumber" required class="form-control" placeholder="Enter Account Number" /> -->
+                </div>
+
+                <div class="form-group">
+                    <div class="pfn-2">
+                        <label for="loanAmount">Account Number</label>
+                        <br/>
+                        <input type="text" (input)="onAccountNumberChanged($event)" [(ngModel)]="acctNumber" required class="form-control-divide" id="acctNumber" name="acctNumber" placeholder="e.g 1024991893" />
+                    </div>
+                    <div class="pfn-2">
+                        <label for="loanTenure">Bank Name</label>
+                        <br/>
+                        <select (change)="this.onBankChanged($event)" [(ngModel)]="bankName" class="form-control-divide-select" required id="bankName" name="bankName">
+                          <option value="0">---Select--Bank---</option>
+                          <option *ngFor="let bank of AllBankLists" value="{{bank.id}}">{{bank.name}}</option>
+                      </select>
+                    </div>
+                </div>
+
+                <!-- 
+              <div class="form-group">
+                  <label for="bankName">Bank Name</label>
+                  <br/>
+                  <select (change)="onBankChanged($event)" [(ngModel)]="bankName" class="form-control-divide-select-long" required id="bankName" name="bankName">
+                      <option value="0">---Select--Bank---</option>
+                      <option *ngFor="let bank of AllBankLists" value="{{bank.id}}">{{bank.name}}</option>
+                  </select>
+                  <input type="text" readonly required [(ngModel)]="bankName" value="{{bankName}}" class="form-control" id="bankName" name="bankName" />
+              </div> 
+              -->
+
+                <div class="form-group">
+                    <label for="acctName" style="text-align: left;">
+                      Account Name
+                  </label>
+                    <br/>
+                    <input type="text" readonly required [(ngModel)]="this.acctName" value="{{this.acctName}}" class="form-control" id="acctName" name="acctName" />
+                </div>
+
+                <h3 style="font-weight:400;color:#000;"></h3>
+                <br/>
+                <div class="form-group">
+                    <label for="bankName "><h3 style="font-weight:400;color:#000; ">Upload your Passport photograph, Staff ID Card
+                     and recent Pay slip
+                  </h3><b>1.</b>Upload Passport Photograph</label>
+                    <br/>
+                    <!-- <select [(ngModel)]="bankName " class="form-control-divide-select-long " required id="bankName " name="bankName ">
+                      <option value="0 ">---Select Bank---</option>
+                      <option *ngFor="let bank of BankLists " value="{{bank.bank}} ">{{bank.bank}}</option>
+                   </select> -->
+                    <input type="file" accept="image/png, image/gif, image/jpeg" #file placeholder="Choose file" (change)="PassportuploadFile($event)" type="file" required class="form-control" id="PassportPhotograph" name="PassportPhotograph" />
+
+                    <div *ngIf="PassportPhotographShow" class="tooltips" style="cursor: pointer;">
+                        View Passport Photograph
+                        <span class="tooltiptexts">
+                      <img width="300" src="{{PassportPhotographUrl}}" />
+                      </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="acctName"><b>2.</b> Upload Staff-ID Card</label>
+                    <br/>
+                    <input type="file" accept="image/png, image/gif, image/jpeg" #file placeholder="Choose file" (change)="CarduploadFile($event)" required class="form-control" id="StaffIDCard" name="StaffIDCard" title="Staff ID Card" />
+
+                    <div *ngIf="StaffIDCardShow" class="tooltips" style="cursor: pointer;">
+                        View Staff-ID Card
+                        <span class="tooltiptexts">
+                      <img width="300" src="{{StaffIDCardUrl}}" />
+                      </span>
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <label for="acctNumber"><b>3.</b> Upload recent Pay Slip (e.g Image/PDF format)</label>
+                    <br/>
+                    <input type="file" accept="image/png, image/gif, image/jpeg, image/pdf, application/pdf" #file placeholder="Choose file " (change)="SlipuploadFile($event)" readonly required class="form-control" id="RecentPaySlip" name="RecentPaySlip" title="Recent Pay Slip"
+                    />
+
+                    <div *ngIf="PaySlipShow" class="tooltips" style="cursor: pointer;">
+                        View Pay Slip
+                        <span class="tooltiptexts">
+                      <img width="300" src="{{PaySlipUrl}}" />
+                      </span>
+                    </div>
+                </div>
+
+                <div class="form-group" style="padding-top: 30px; ">
+                    <!-- <p style="color: red;font-size: 15px; ">Your IPPIS Number must be valid before processing the button</p> -->
+                    <input type="submit" class="form-control-btn" (click)="onContinue($event)" id="Rememberme " value="Continue " />
+                </div>
+                <div class="form-group ">
+                    <div class="acct-1 ">
+                    </div>
+                    <div class="acct-2 ">
+
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <style>
+        /* .swal2-confirm,
+      .swal2-styled, */
+        
+        .swal2-default-outline {
+            outline: none;
+            outline-color: transparent;
+            -webkit-tap-highlight-color: transparent;
+        }
+    </style>
+</div>
+<app-spinner></app-spinner>
+<router-outlet></router-outlet>

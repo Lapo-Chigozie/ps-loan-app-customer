@@ -1,0 +1,62 @@
+<div class="container_Content">
+    <div class="content_1">
+        <div class="signin-title">
+            <h2 style="font-size: 17px;">Complete your profile and login.</h2>
+            <p *ngIf="IsDisplayTimeCount==false"><span>Enter your BVN in the required field to complete your profile.</span></p>
+            <p style="font-size: 12px;" *ngIf="IsDisplayTimeCount">{{otpmessage}}</p>
+            <p style="font-size: 14px;" *ngIf="IsDisplayTimeCount">Bvn OTP code Expire at ({{timeCount}})</p>
+            <p style="color: #cf0f0f;font-size: 11px;">
+                {{TokenMessage}} <button style="border: 0 #FFF solid; color: #2740e2;background-color: #FFF;" *ngIf="BtnIsActive" (click)="onResendCode($event)">Resend Code</button>
+            </p>
+        </div>
+        <div class="signin-form">
+            <form action="#" method="post" enctype="multipart/form-data" role="form">
+                <div class="form-group" *ngIf="BvnSend==false">
+                    <label for="Bvn"></label><br/>
+                    <!-- <br/> (focus)="onTextChange6($event)" -->
+                    <input (input)="keyupEvent($event)" maxlength="11" (keypress)="changeEvent1($event)" (blur)="onTextChange6($event)" [(ngModel)]="BvnCode" type="text" class="form-control" id="Bvn" name="Bvn" placeholder="Bank Verification Number" />
+                </div>
+                <div class="form-group" *ngIf="BvnSend">
+                    <label for="ValidationCode" style="color:#000;">Enter bvn OTP Code</label>
+                    <br/>
+                    <input (change)="ChangeEventInputEl1($event)" (paste)="onPasteHandler($event)" (keyup)="keyupEventInputEl1($event)" (keypress)="keyupEventInputEl1($event)" #input1 [(ngModel)]="Code1" value="{{this.Code1}}" name="Code1" type="text" maxlength="6" style="margin-top: 10px;"
+                        required class="form-control-ValidationCode" placeholder="" />
+                    <input (change)="ChangeEventInputEl2($event)" (keyup)="keyupEventInputEl2($event)" (keypress)="keyupEventInputEl2($event)" #input2 [(ngModel)]="Code2" value="{{this.Code2}}" name="Code2" style="margin-left: 6.5%;margin-top: 10px;" required maxlength="1"
+                        type="text" class="form-control-ValidationCode" placeholder="" />
+                    <input (change)="ChangeEventInputEl3($event)" (keyup)="keyupEventInputEl3($event)" (keypress)="keyupEventInputEl3($event)" #input3 [(ngModel)]="Code3" value="{{this.Code3}}" name="Code3" style="margin-left: 6.5%;margin-top: 10px;" required maxlength="1"
+                        type="text" class="form-control-ValidationCode" placeholder="" />
+                    <input (change)="ChangeEventInputEl4($event)" (keyup)="keyupEventInputEl4($event)" (keypress)="keyupEventInputEl4($event)" #input4 [(ngModel)]="Code4" value="{{this.Code4}}" name="Code4" style="margin-left: 6.5%;margin-top: 10px;" required maxlength="1"
+                        type="text" class="form-control-ValidationCode" placeholder="" />
+                    <input (change)="ChangeEventInputEl5($event)" (keyup)="keyupEventInputEl5($event)" (keypress)="keyupEventInputEl5($event)" #input5 [(ngModel)]="Code5" value="{{this.Code5}}" name="Code5" style="margin-left: 6.5%;margin-top: 10px;" required maxlength="1"
+                        type="text" class="form-control-ValidationCode" placeholder="" />
+                    <input (change)="ChangeEventInputEl6($event)" (keyup)="keyupEventInputEl6($event)" (keypress)="keyupEventInputEl6($event)" #input6 [(ngModel)]="Code6" value="{{this.Code6}}" name="Code6" style="margin-left: 6.5%;margin-top: 10px;" required maxlength="1"
+                        type="text" class="form-control-ValidationCode" placeholder="" />
+                </div>
+
+                <div class="form-group" style="padding-top: 30px;" *ngIf="BvnCodeTyped">
+                    <input type="submit" (click)="onContinue($event)" class="form-control-btn" id="Rememberme" value="Continue" />
+                </div>
+                <div class="form-group">
+                    <div class="acct-1">
+                        <!-- <p><a href="#">Send Code</a></p> -->
+                    </div>
+                    <div class="acct-2">
+
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <style>
+        /* .swal2-confirm,
+    .swal2-styled, */
+        
+        .swal2-default-outline {
+            outline: none;
+            outline-color: transparent;
+            -webkit-tap-highlight-color: transparent;
+        }
+    </style>
+</div>
+<app-spinner></app-spinner>
+<router-outlet></router-outlet>

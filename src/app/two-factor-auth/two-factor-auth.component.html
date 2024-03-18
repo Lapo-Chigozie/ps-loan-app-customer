@@ -1,0 +1,59 @@
+<!-- <div class="container_Content-Stages">
+</div> -->
+
+<div class="container_Content">
+
+    <div class="content_1">
+        <div class="signin-title">
+            <h2>Two factor authentication</h2>
+            <p><span>Enter 6 digit code send to your email address.</span></p>
+            <p>OTP Expire at ({{timeCount}})</p>
+            <p style="color: #cf0f0f;font-size: 11px;">{{TokenMessage}}
+                <button style="border: 0 #FFF solid; color: #2740e2;background-color: #FFF;" *ngIf="BtnIsActive" (click)="onResendCode($event)">Resend Code</button>
+            </p>
+        </div>
+        <div class="signin-form">
+            <form action="#" method="post" enctype="multipart/form-data" role="form">
+                <div class="form-group" *ngIf="BvnSend">
+                    <label for="ValidationCode" style="color: #000000;">Enter two-factor login otp code</label>
+                    <br/>
+                    <!-- <br/> (focus)="onTextChange6($event)" (blur)="onTextChange6($event)" -->
+                    <input (paste)="onPasteHandler($event)" (keyup)="keyupEventInputEl1($event)" (keypress)="keyupEventInputEl1($event)" #input1 [(ngModel)]="Code1" value="{{this.Code1}}" name="Code1" style="margin-top: 10px;" required maxlength="6" type="text" class="form-control-ValidationCode"
+                    />
+                    <input (keyup)="keyupEventInputEl2($event)" (keypress)="keyupEventInputEl2($event)" #input2 [(ngModel)]="Code2" value="{{this.Code2}}" name="Code2" style="margin-left: 6.5%;margin-top: 10px;" required maxlength="1" type="text" class="form-control-ValidationCode"
+                    />
+                    <input (keyup)="keyupEventInputEl3($event)" (keypress)="keyupEventInputEl3($event)" #input3 [(ngModel)]="Code3" value="{{this.Code3}}" name="Code3" style="margin-left: 6.5%;margin-top: 10px;" required maxlength="1" type="text" class="form-control-ValidationCode"
+                    />
+                    <input (keyup)="keyupEventInputEl4($event)" (keypress)="keyupEventInputEl4($event)" #input4 [(ngModel)]="Code4" value="{{this.Code4}}" name="Code4" style="margin-left: 6.5%;margin-top: 10px; " required maxlength="1 " type="text " class="form-control-ValidationCode "
+                    />
+                    <input (keyup)="keyupEventInputEl5($event) " (keypress)="keyupEventInputEl5($event)" #input5 [(ngModel)]="Code5" value="{{this.Code5}}" name="Code5" style="margin-left: 6.5%;margin-top: 10px; " required maxlength="1 " type="text
+                      " class="form-control-ValidationCode " />
+                    <input (keyup)="keyupEventInputEl6($event) " (keypress)="keyupEventInputEl6($event)" #input6 [(ngModel)]="Code6" value="{{this.Code6}}" name="Code6" style="margin-left: 6.5%;margin-top: 10px; " required maxlength="1 " type="text
+                      " class="form-control-ValidationCode " />
+                </div>
+
+                <div class="form-group " style="padding-top: 30px; ">
+                    <input *ngIf="ButtonCondition " type="submit " (click)="onContinue($event) " class="form-control-btn " value="Continue " />
+                </div>
+
+                <div class="form-group ">
+                    <div class="acct-1 ">
+                        <p>
+                            <a href=" "></a>
+                        </p>
+                    </div>
+                    <div *ngIf="IsApploan " class="acct-2 ">
+                        <p>Don't to apply a loan, <a (click)="CancelLoanLogin($event) " style="color: #2740e2;text-decoration: underline;cursor: pointer; ">Sign Out</a></p>
+                    </div>
+                    <div *ngIf="IsAppDashboard " class="acct-2 ">
+                        <p>Don't want to sign in, <a (click)="CancelDashboadLogin($event) " style="color: #2740e2;text-decoration: underline;cursor: pointer; ">Sign Out</a></p>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+</div>
+<app-spinner></app-spinner>
+<router-outlet></router-outlet>

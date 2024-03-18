@@ -1,0 +1,275 @@
+<div *ngIf="this.IsLoadingData" class="Loanchart-chatAcct">
+    <img src="assets/images/icegif-1262.gif" width="400" />
+</div>
+
+<div class="Loanchart-title" style="display: table;">
+    <div style="float:left;width:50%;">
+        <h2>Loan Application Details</h2>
+    </div>
+
+    <div *ngIf="this.LoanDetails.loanAppReviewStatus!=undefined" style="float:left;width:50%;padding-top: 20px;padding-bottom:25px;text-align:right;">
+        <button (click)="this.onPrintsLoanData(this.LoanDetails)" style="width:150px;height: 50px;background-color: #094b03;margin-right:5px; " type="button " class="btn-btn-success ">Preview</button>
+        <button *ngIf="this.LoanDetails.loanAppReviewStatus.status==='Pending'" (click)="this.onCancelLoanApp(this.LoanDetails.loanDetailsData.appId)" style="width:150px;height: 50px;" type="button" class="btn-btn-success">Cancel Loan</button>
+    </div>
+</div>
+
+<div style="width: 100%;display: table;">
+
+    <div *ngIf="this.LoanDetails!=null && this.LoanDetails!=undefined" class="loan-list" style="float: left;width:45.5%;">
+        <div>
+            <h2 style="color: #000000;">Loan Application Status</h2>
+        </div>
+        <div class="Profile-Details" style="overflow:auto;">
+            <!-- <p> <b>Status: </b>
+              <span style="color:#ffffff;background-color:#14c604;box-shadow: 2px 2px 2px #7c7b7b96;border-radius:30px;padding: 5px 5px 5px 5px;">
+                {{this.LoanDetails.loanAppReviewStatus.status}}
+              </span>
+          </p> -->
+
+            <p> <b>Status: </b>
+                <span *ngIf="this.LoanDetails.loanAppReviewStatus.status=='Approved'" style="color:#ffffff;background-color:#14c604;box-shadow: 2px 2px 2px #7c7b7b96;border-radius:30px;padding: 5px 5px 5px 5px;">
+              {{this.LoanDetails.loanAppReviewStatus.status}}
+              </span>
+                <span *ngIf="this.LoanDetails.loanAppReviewStatus.status=='Pending'" style="color:#ffffff;background-color:#dab705;box-shadow: 2px 2px 2px #7c7b7b96;border-radius:30px;padding: 5px 5px 5px 5px;">
+                  {{this.LoanDetails.loanAppReviewStatus.status}}
+                  </span>
+                <span *ngIf="this.LoanDetails.loanAppReviewStatus.status=='Cancelled'||this.LoanDetails.loanAppReviewStatus.status=='Cancel'" style="color:#ffffff;background-color:#ec2203;box-shadow: 2px 2px 2px #7c7b7b96;border-radius:30px;padding: 5px 5px 5px 5px;">
+                      {{this.LoanDetails.loanAppReviewStatus.status}}
+                      </span>
+            </p>
+
+            <p> <b>Approved By: </b> {{this.LoanDetails.loanAppReviewStatus.approvedBy}}</p>
+
+            <p> <b>Date: </b> {{this.LoanDetails.loanAppReviewStatus.approvedDate}}</p>
+
+            <p> <b>Note: </b> {{this.LoanDetails.loanAppReviewStatus.comment}}</p>
+        </div>
+        <!-- this.ProfileDetails.accountId this.ProfileDetails.id this.ProfileDetails.staff -->
+
+        <div>
+            <h2 style="color: #000;">BVN Details</h2>
+        </div>
+
+        <div class="Profile-Details" style="overflow:auto;">
+
+            <p><b>BVN: </b> {{this.LoanDetails.bvnDetail.bvn}}</p>
+
+            <p><b>Name: </b> {{this.LoanDetails.bvnDetail.firstName}}, {{this.LoanDetails.bvnDetail.lastName}}, {{this.LoanDetails.bvnDetail.middleName}}</p>
+
+            <p><b>Phone Number: </b> {{this.LoanDetails.bvnDetail.phoneNumber1}}</p>
+
+            <p><b>Beneficialary Name: </b> {{this.LoanDetails.loanDetailsData.beneficialaryName}}</p>
+
+            <p><b>Employment Date: </b> {{this.LoanDetails.loanDetailsData.employeementDate}}</p>
+
+            <p><b>Retirement Date: </b> {{this.LoanDetails.loanDetailsData.retirementDate}}</p>
+
+        </div>
+
+        <div>
+            <h2 style="color: #000;">Disbursed Details</h2>
+        </div>
+
+        <div class="Profile-Details" style="overflow:auto;">
+            <p><b>Disbursed Amount: </b> {{this.LoanDetails.loanDetailsData.disbursementAmount}}</p>
+            <p><b>Disbursed Date: </b> {{this.LoanDetails.loanDetailsData.disbursementDate}}</p>
+        </div>
+
+        <div>
+            <h2 style="color: #000; ">Relationship Officer</h2>
+        </div>
+
+        <div class="Profile-Details " style="overflow:auto;">
+            <p><b>Full Name: </b> {{this.LoanDetails.loanDetailsData.reOfficerFirstName}} {{this.LoanDetails.loanDetailsData.reOfficerLastName}}</p>
+        </div>
+
+        <div class="Profile-Details " style="overflow:auto;">
+            <p><b>Hub Name: </b> {{this.LoanDetails.loanDetailsData.reconciliationOfficerHub}}</p>
+        </div>
+
+        <div>
+            <h2 style="color: #000;">Loan & Bank Account Details</h2>
+        </div>
+
+        <div class="Profile-Details" style="overflow:auto;">
+
+            <p><b>Narration: </b> {{this.LoanDetails.loanDetailsData.narration}}</p>
+
+
+
+            <p><b>Bank Name: </b> {{this.LoanDetails.loanDetailsData.bankName}}</p>
+
+            <p><b>Bank Account Name: </b> {{this.LoanDetails.loanDetailsData.acctName}}</p>
+
+            <p><b>Bank Account Number: </b> {{this.LoanDetails.loanDetailsData.acctNumber}}</p>
+
+        </div>
+
+        <div *ngIf="this.LoanScheduleData!=undefined">
+            <h2 style="color: #000; ">Loan Repayment</h2>
+        </div>
+
+        <div *ngIf="this.LoanScheduleData!=undefined" class="Profile-Details " style="overflow:auto; ">
+
+            <p *ngIf="this.LoanScheduleData!=undefined"><b>Tenure: </b> {{this.LoanScheduleData.teunerName}}</p>
+
+            <p *ngIf="this.LoanDetails.loanDetailsData!=null && this.LoanDetails.loanDetailsData!=undefined"><b>Loan Amount: </b> {{this.LoanDetails.loanDetailsData.loanAmountString}}</p>
+
+            <!-- {{this.LoanScheduleData.interestPayment1}}, -->
+
+            <p *ngIf="this.LoanScheduleData!=undefined"><b>Rate: </b> {{this.LoanScheduleData.interest}}% </p>
+
+            <p *ngIf="this.LoanScheduleData!=undefined"><b>Total Interest Amount: </b> {{this.LoanScheduleData.interestPayment}}</p>
+
+            <p *ngIf="this.LoanScheduleData!=undefined"><b>Total Repayment Amount: </b> {{this.LoanScheduleData.totalAmount}}</p>
+
+            <p *ngIf="this.LoanScheduleData!=undefined"><b>Last Repayment Date: </b> {{this.LoanScheduleData.dueDate}}</p>
+
+            <p *ngIf="this.LoanScheduleData!=undefined"><b>Number Of Repayment: </b> {{this.LoanScheduleData.numberOfPayments}}</p>
+
+            <!-- <p *ngIf="this.LoanScheduleData!=undefined"><b>Due Tenure: </b> {{this.LoanScheduleData.teunerName}}</p>
+
+          <p *ngIf="this.LoanScheduleData!=undefined"><b>Repayment Amount: </b> {{this.LoanScheduleData.amountScheduled}}</p> -->
+
+        </div>
+
+        <div *ngIf="this.LoanScheduleData != undefined" class="form-group">
+            <h2 style="color: #000; ">
+                <span>Repayment Scheduled: </span>
+            </h2>
+        </div>
+
+        <div *ngIf="this.LoanScheduleData != undefined" class="form-group">
+            <div style="height:125px;overflow:auto;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="th-sm" style="color: #000;padding-left: 10px;padding-right: 10px;">No</th>
+                            <th class="th-sm" style="color: #000;padding-left: 10px;padding-right: 10px;">Repayment</th>
+                            <th class="th-sm" style="color: #000;padding-left: 10px;padding-right: 10px;">Scheduled Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of this.LoanScheduleData.scheduledList" style="margin-top:10px;margin-bottom:10px;">
+                            <td style="color: #000;padding-left: 10px;padding-right: 10px;">{{item.no}}</td>
+                            <td style="color: #000;padding-left: 10px;padding-right: 10px;">{{item.loanAmountWithCurrency}}</td>
+                            <td style="color: #000;padding-left: 10px;padding-right: 10px;">{{item.nextSchedeledDate}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div>
+            <h2 style="color: #000;">Means of Identification</h2>
+        </div>
+
+        <div class="Profile-Details" style="overflow:auto;">
+            <p><b>Passport Photograph: </b></p>
+            <br/>
+            <p *ngIf="this.LoanDetails.loanDetailsData.isPassportPhotograph==false">
+                <img style="width:100%;" src="{{this.LoanDetails.loanDetailsData.passportPhotograph}} " />
+            </p>
+            <p *ngIf="this.LoanDetails.loanDetailsData.isPassportPhotograph">
+                <!-- <img style="width:100%;" src="{{this.LoanDetails.loanDetailsData.passportPhotograph}} " /> -->
+                <a target="_blank" href="{{this.LoanDetails.loanDetailsData.passportPhotographUrl}}">Download Passport Photograph</a>
+            </p>
+        </div>
+    </div>
+
+    <div *ngIf="this.LoanDetails!=null && this.LoanDetails!=undefined" class="loan-list" style="float:left;width:45.5%;">
+        <div>
+            <h2 style="color: #000;">Customer Details</h2>
+        </div>
+
+        <div class="Profile-Details" style="overflow:auto;">
+            <p>
+                <b>Employee Number : </b> {{this.LoanDetails.clientDetail.pfNumber}}
+            </p>
+
+            <p>
+                <b>Name: </b> {{this.LoanDetails.clientDetail.fullname}}
+            </p>
+
+            <p>
+                <b>Date-Of-Birth: </b> {{this.LoanDetails.clientDetail.dateOfBirth}}
+                <!-- <span>({{this.LoanDetails.clientDetail.age}})</span> -->
+            </p>
+
+            <p>
+                <b>Marital Status: </b> {{this.LoanDetails.clientDetail.maritalStatus}}
+            </p>
+
+            <p>
+                <b>Email Address: </b> {{this.LoanDetails.acctDetail.email}}
+            </p>
+
+            <p>
+                <b>Phone Number: </b> {{this.LoanDetails.clientDetail.phoneNumber}}
+            </p>
+
+            <p>
+                <b>Alt Phone Number: </b> {{this.LoanDetails.clientDetail.altPhoneNumber}}
+            </p>
+
+            <p>
+                <b>Residential Address: </b> {{this.LoanDetails.clientDetail.residentialAddress}}
+            </p>
+
+            <p>
+                <b>City: </b> {{this.LoanDetails.loanDetailsData.city}}
+            </p>
+            <p>
+                <b>State-Of-Origin: </b> {{this.LoanDetails.loanDetailsData.stateOfOrigin}}
+            </p>
+            <p>
+                <b>Business Segment: </b> {{this.LoanDetails.loanDetailsData.businessSegment}}
+            </p>
+            <p>
+                <b>Ministry: </b> {{this.LoanDetails.loanDetailsData.businessType}}
+            </p>
+        </div>
+
+        <div>
+            <h2 style="color: #000;">Customer Next-of-kin</h2>
+        </div>
+
+        <div class="Profile-Details" style="overflow:auto;">
+
+            <p><b>Name: </b> {{this.LoanDetails.clientDetail.nokname}}</p>
+
+            <p><b>Phone Number: </b> {{this.LoanDetails.clientDetail.nokphone}}</p>
+
+            <p><b>RelationShip: </b> {{this.LoanDetails.clientDetail.relationShip}}</p>
+
+            <p><b>Residential Address: </b> {{this.LoanDetails.clientDetail.nokaddress}}</p>\
+
+        </div>
+
+        <div class="Profile-Details" style="overflow:auto;">
+            <p>
+                <b>Staff Id Card: </b>
+            </p>
+            <br/>
+            <p *ngIf="this.LoanDetails.loanDetailsData.isStaffIdCard==false">
+                <img style="width:100%;" src="{{this.LoanDetails.loanDetailsData.staffIdCard}}" />
+            </p>
+            <p *ngIf="this.LoanDetails.loanDetailsData.isStaffIdCard">
+                <!-- <img style="width:100%;" src="{{this.LoanDetails.loanDetailsData.staffIdCard}}" /> -->
+                <a target="_blank" href="{{this.LoanDetails.loanDetailsData.staffIdCardUrl}}">Download Staff Id Card</a>
+            </p>
+            <p><b>Pay Slip: </b></p>
+            <br/>
+            <p *ngIf="this.LoanDetails.loanDetailsData.isPaySliptfiles==false">
+                <img style="width:100%;" src="{{this.LoanDetails.loanDetailsData.paySliptfiles}}" />
+            </p>
+            <p *ngIf="this.LoanDetails.loanDetailsData.isPaySliptfiles">
+                <!-- <img style="width:100%;" src="{{this.LoanDetails.loanDetailsData.paySliptfiles}}" /> -->
+                <a target="_blank" href="{{this.LoanDetails.loanDetailsData.paySliptfilesUrl}}">Download Pay Slipt</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+<app-spinner></app-spinner>
+<router-outlet></router-outlet>

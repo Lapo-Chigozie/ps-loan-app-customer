@@ -1,0 +1,47 @@
+<router-outlet></router-outlet>
+<div class="container_Content" style="height: 1100px;">
+
+    <div class="content_1">
+        <div class="signin-title">
+            <h2>Sign Up to apply for a loan</h2>
+            <p><span>Start with an estimate of how much loan you can get.</span></p>
+        </div>
+        <div class="signin-form">
+            <form action="#" method="post" enctype="application/x-www-form-urlencoded" role="form">
+                <div class="form-group">
+                    <label for="username">Email Address</label>
+                    <br/>
+                    <input [(ngModel)]="username" type="email" class="form-control" id="username" name="username" placeholder="Email Address" />
+                </div>
+                <div class="form-group">
+                    <label for="Password">Password</label>
+                    <br/>
+                    <input type="password" [(ngModel)]="Password" class="form-control" id="Password" name="Password" placeholder="Password" />
+                </div>
+                <div class="form-group">
+                    <label for="ConfirmPassword">Confirm Password</label>
+                    <br/>
+                    <input type="password" [(ngModel)]="ConfirmPassword" class="form-control" id="ConfirmPassword" name="ConfirmPassword" placeholder="Confirm Password" />
+                </div>
+                <div class="form-group">
+                    <div class="TermsAndConditions">
+                        <input type="checkbox" (change)="onTermsAndConditions($event)" class="form-control-check" id="TermsAndConditions" name="TermsAndConditions" /> I accept the <a target="_blank" href="https://www.lapo-nigeria.org/bvn-consent-terms">Terms and Conditions</a>
+                    </div>
+                    <div class="PrivacyPolicy">
+                        <input type="checkbox" (change)="onPrivacyPolicy($event)" class="form-control-check" id="PrivacyPolicy" name="PrivacyPolicy" /> I accept the <a target="_blank" href="https://www.lapo-nigeria.org/lapo-privacy-policy">Privacy Policy</a>
+                    </div>
+                </div>
+                <div class="form-group" style="padding-top: 30px;">
+                    <input type="submit" (click)="Submit($event)" class="form-control-btn" id="SignUp" value="Create Account" />
+                </div>
+                <div class="form-group">
+                    <div class="acct-2">
+                        <p>Already have an account? <a [routerLink]="['/signin']"> Sign In</a></p>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<app-spinner></app-spinner>

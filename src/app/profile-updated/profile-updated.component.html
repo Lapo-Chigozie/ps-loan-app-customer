@@ -1,0 +1,87 @@
+<div class="container_Content" style="height: 800px;">
+    <div class="content_1">
+        <div class="signin-title">
+            <h2>Update your profile</h2>
+        </div>
+        <div class="signin-form">
+            <form action="#" method="post" role="form">
+
+                <div class="form-group">
+                    <div class="pfn-2">
+                        <label for="FirstName">First Name</label>
+                        <br/>
+                        <input type="text" readonly [(ngModel)]="EmploymentFirstName" required class="form-control-divide" name="FirstName" placeholder="First Name" />
+                    </div>
+
+                    <div class="pfn-2">
+                        <label for="MiddleName">Middle Name (Optional)</label>
+                        <br/>
+                        <input type="text" [(ngModel)]="EmploymentMiddleName" class="form-control-divide" name="MiddleName" placeholder="Middle Name" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="LastName">Last Name</label>
+                    <br/>
+                    <input type="text" readonly [(ngModel)]="EmploymentLastName" required class="form-control" name="LastName" placeholder="LastName" />
+                </div>
+
+                <div class="form-group">
+                    <label for="Gender">Gender</label>
+                    <br/>
+                    <select [(ngModel)]="EmploymentGender" required class="form-control-select" id="Gender" name="Gender">
+                          <option selected="" value="">---Gender---</option>
+                          <option value="Male">Male</option>
+                          <option  value="Female">Female</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="MaritalStatus">Marital Status</label>
+                    <br/>
+                    <select [(ngModel)]="EmploymentMaritalStatus" required class="form-control-select" id="MaritalStatus" name="MaritalStatus">
+                      <option selected="" value="">---Marital---Status---</option>
+                      <option value="Single">Single</option>
+                      <option value="Married">Married</option>
+                      <option value="Divorced">Divorced</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                    <div class="pfn-2">
+                        <label for="PhoneNumber">Phone Number</label>
+                        <br/>
+                        <input type="text" readonly [(ngModel)]="EmploymentPhoneNumber" required class="form-control-divide" name="PhoneNumber" placeholder="Phone Number" />
+
+                    </div>
+
+                    <div class="pfn-2">
+                        <label for="DateOfBirth">Date-Of-Birth</label>
+                        <br/>
+                        <input type="text" readonly [(ngModel)]="EmploymentDateOfBirth" required class="form-control-divide" name="DateOfBirth" placeholder="Date Of Birth" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="pfn-2">
+                        <label for="EmpmentDate">Employment Date</label>
+                        <br/>
+                        <input type="date" [(ngModel)]="EmploymentDate" required class="form-control-divide" name="EmpmentDate" placeholder="Employment Date" />
+                    </div>
+
+                    <div class="pfn-2">
+                        <label for="RetmentDate">Retirement Date</label>
+                        <br/>
+                        <input type="date" [(ngModel)]="RetirementDate" required class="form-control-divide" name="RetmentDate" placeholder="Retirement Date" />
+                    </div>
+                </div>
+
+                <div class="form-group" style="padding-top:30px;">
+                    <input type="submit" style="margin-top: 30px;" class="form-control-btn" id="SiginBtn" value="Continue" (click)="this.CkeckEamilValidity()" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<app-spinner></app-spinner>
+<router-outlet></router-outlet>

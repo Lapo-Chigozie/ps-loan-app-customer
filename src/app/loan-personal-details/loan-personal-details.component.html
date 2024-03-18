@@ -1,0 +1,261 @@
+<div class="container_Content">
+    <div class="container-Content-Stages" style="margin:0;padding:0;height: 87px;">
+        <div class="container-Content-options-1" style="margin:0;padding:0;padding-top: 10px;">
+            <img style="cursor: pointer;" (click)="ContainerBVN()" src="assets/images/icons8-security-shield-64.png" width="40" height="40" />
+            <p (click)="ContainerBVN()" style="color:#fff;cursor: pointer;">Bank Verification Number</p>
+        </div>
+
+        <div class="container-Content-options-2" style="margin:0;padding:0;padding-top: 10px;">
+            <img style="cursor: pointer;" (click)="ContainerPersonalDetails()" src="assets/images/icons8-user-90.png" width="40" height="40" />
+            <p (click)="ContainerPersonalDetails()" style="color:#fff;border-bottom: 5px #fff solid;cursor: pointer;">Personal Details</p>
+        </div>
+
+        <div class="container-Content-options-4" style="margin:0;padding:0;padding-top: 10px;">
+            <img style="cursor: pointer;" (click)="ContainerAccountDetails()" src="assets/images/icons8-debit-card-64-opacity.png" width="40" height="40" />
+            <p style="cursor: pointer;" (click)="ContainerAccountDetails()">Loan/Account Details</p>
+        </div>
+
+        <div class="container-Content-options-5" style="margin:0;padding:0;padding-top: 10px;">
+            <img style="cursor: pointer;" (click)="ContainerSummary()" src="assets/images/icons8-document-64-search-opacity.png" width="40" height="40" />
+            <p style="cursor: pointer;" (click)="ContainerSummary()">Summary</p>
+        </div>
+
+        <div class="container-Content-options-6" style="margin:0;padding:0;padding-top: 10px;">
+            <img src="assets/images/icons8-ok-24-opacity.png" width="40" height="40" />
+            <p>Completed</p>
+        </div>
+    </div>
+
+    <div class="content_1">
+
+        <div class="signin-title" style="display:flex;align-items:center;margin-left:40px;margin-right: 40px;">
+            <div class="image" style="flex-basis:20%;padding-top: 10px;">
+                <button (click)="this.onBackWard($event)" style="background-color:transparent;border:0px solid transparent;cursor: pointer;"> <img style="padding-left: 10px;" width="20" src="assets/images/icons8-arrow-96-green.png" /></button>
+            </div>
+            <div class="text" style="color: #000000;padding-left: 20px;text-align:center;">
+                <h3>Customer Information</h3>
+            </div>
+        </div>
+
+        <!-- <div style="text-align: center">
+          <span style="vertical-align:middle;font-size:23px;font-weight: 500;width: 70%;text-align:center">
+           <button (click)="onBackWard($event)" style="background-color: transparent;border: 0px solid transparent;cursor: pointer;margin-top: 30px;"></button>              
+          </span>
+          <p><span>Fill in the required space.</span></p>
+      </div> -->
+
+        <div class="signin-form">
+            <form action="#" method="post" enctype="multipart/form-data" role="form">
+                <br/>
+                <div class="form-group">
+                    <label for="fullname">Full Name</label>
+                    <br/>
+                    <input type="text" value="{{fullname}}" readonly required [(ngModel)]="fullname" class="form-control" id="fullname" name="fullname" placeholder="Full Name" />
+                </div>
+
+                <div class="form-group">
+
+                    <!-- <label for="fullname">Date-Of-Birth</label>
+                  <br/>
+                  <input type="text" readonly (keyup)="TypeValidation1($event)" (paste)="TypeValidation1($event)" value="{{DateOfBirth}}" [(ngModel)]="DateOfBirth" required class="form-control" id="DateOfBirth" name="DateOfBirth" placeholder="e.g 14-May-1989" />
+                  <input type="hidden" value="IPS006643" [(ngModel)]="PFNumber" required class="form-control-divide" id="PFNumber" name="PFNumber" placeholder="Enter IPPIS Number" /> -->
+
+                    <!-- (keyup)="onKeydown($event)" (keypress)="onIPFNkeypress($event)" (paste)="onIPFNpaste($event)" -->
+
+                    <div class="pfn-2">
+                        <label for="PFNumber">Employee Number</label>
+                        <br/>
+                        <input type="text" maxlength="11" [(ngModel)]="PFNumber" required class="form-control-divide" id="PFNumber" name="PFNumber" placeholder="Enter Employee Number" />
+                    </div>
+                    <div class="pfn-2">
+                        <label for="DateOfBirth">Date Of Birth</label>
+                        <br/>
+                        <input type="text" readonly (keyup)="TypeValidation1($event)" (paste)="TypeValidation1($event)" value="{{DateOfBirth}}" [(ngModel)]="DateOfBirth" required class="form-control-divide" id="DateOfBirth" name="DateOfBirth" placeholder="e.g 14-May-1989" />
+                    </div>
+                    <!-- (keypress)="TypeValidation1($event)" (blur)="onIPFNblur($event)" -->
+                </div>
+
+                <div class="form-group">
+                    <div class="pfn-2">
+                        <label for="PhoneNumber">Phone Number</label>
+                        <br/>
+                        <input type="tel" required value="{{PhoneNumber}}" [(ngModel)]="PhoneNumber" readonly class="form-control-divide" id="PhoneNumber" name="PhoneNumber" placeholder="Enter Phone Number" />
+                    </div>
+                    <div class="pfn-2">
+                        <label for="AltPhoneNumber">Alt Phone Number (Optional)</label>
+                        <br/>
+
+                        <input type="hidden" required value="{{MaritalStatus}}" [(ngModel)]="MaritalStatus" id="MaritalStatus1" name="MaritalStatus1" />
+
+                        <input type="tel" value="{{AltPhoneNumber}}" [(ngModel)]="AltPhoneNumber" class="form-control-divide" id="AltPhoneNumber" name="AltPhoneNumber" placeholder="Alt Phone Number (Optional)" />
+                    </div>
+                </div>
+
+
+                <!-- <div class="form-group">
+                  <label for="retDate">Marital Status</label>
+                  <br/>
+                  <select [(ngModel)]="MaritalStatus" required class="form-control-select" id="MaritalStatus" name="MaritalStatus">
+                          <option selected="" value="">---Marital Status---</option>
+                          <option value="Single">Single</option>
+                          <option  value="Married">Married</option>
+                          <option  value="Divorced">Divorced</option>
+                  </select>
+              </div> -->
+
+                <div class="form-group">
+                    <div class="pfn-2">
+                        <label for="nokname">State</label>
+                        <br/>
+                        <select (change)="this.onStateChange($event)" [(ngModel)]="CusState" required class="form-control-divide-select" id="State" name="State">
+                          <option selected="" value="">---Select--State---</option>
+                          <option *ngFor="let item of this.StateLists" value="{{item.id}}">{{item.name}}</option>
+                      </select>
+                    </div>
+                    <div class="pfn-2">
+                        <label for="City">City</label>
+                        <br/>
+                        <select (change)="this.onCityChange($event)" [(ngModel)]="CusCity" required class="form-control-divide-select" id="City" name="City">
+                          <option selected="" value="">---Select--City---</option>
+                          <option *ngFor="let item of this.CityLists" value="{{item.id}}">{{item.name}}</option>
+                          </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="ResidentialAddress">Residential Address</label>
+                    <br/>
+                    <input type="text" value="{{ResidentialAddress}}" [(ngModel)]="ResidentialAddress" required class="form-control" id="ResidentialAddress" name="ResidentialAddress" placeholder="e.g Bendo St, Maryland Lagos Nigeria" />
+                </div>
+
+                <div class="form-group">
+                    <div class="pfn-2">
+                        <label for="nokname">Business Segment</label>
+                        <br/>
+                        <select (change)="this.onBusinessSegmentChange($event)" [(ngModel)]="CusBusinessSegmentValue" required class="form-control-divide-select" id="BusinessSegment" name="BusinessSegment">
+                          <option value="" disabled>---Select---</option>
+                          <option *ngFor="let item of this.BusinessSegmentLists" value="{{item.id}}" [selected]="item.name==='Public Sector'" >{{item.name}}</option>
+                      </select>
+                    </div>
+
+                    <div class="pfn-2">
+                        <label for="City">Ministry</label>
+                        <br/>
+                        <select (change)="this.onBusinessTypeChange($event)" [(ngModel)]="CusBusinessTypeValue" required class="form-control-divide-select" id="BusinessType" name="BusinessType">
+                          <option selected="" value="">---Select---</option>
+                          <option *ngFor="let item of this.BusinessTypeLists" value="{{item.id}}">{{item.name}}</option>
+                      </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <br/>
+                    <br/>
+                    <label style="font-weight:450;margin-top:30px;font-size:17px;color: #000;"><b>Next-Of-Kin Details</b></label>
+                    <br/>
+                    <br/>
+                </div>
+
+                <div class="form-group">
+                    <div class="pfn-2">
+                        <label for="nokname">Next-Of-Kin Name</label>
+                        <br/>
+                        <input type="text" [(ngModel)]="nokname" required class="form-control-divide" id="nokname" name="nokname" placeholder="e.g Peter John" />
+                    </div>
+
+                    <div class="pfn-2">
+                        <label for="nokphone">Next-Of-Kin Phone</label>
+                        <br/>
+                        <input type="tel" required [(ngModel)]="nokphone" class="form-control-divide" id="nokphone" name="nokphone" placeholder="Nok Phone Number" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="nokaddress">Next-Of-Kin Address</label>
+                    <br/>
+                    <input type="text" required [(ngModel)]="nokaddress" class="form-control" id="nokaddress" name="nokaddress" placeholder="e.g Bendo St, Maryland Lagos Nigeria" />
+                </div>
+
+                <!-- <div class="form-group">
+                  <label for="RelationShip">Relationship</label>
+                  <br/>
+                  <select [(ngModel)]="RelationShip" required class="form-control-select" id="RelationShip" name="RelationShip">
+                          <option selected="" value="">---Relation-Ship---</option>
+                          <option value="Parent">Parent</option>
+                          <option  value="Brothers/Sisters">Brothers/Sisters</option>
+                          <option  value="Friend">Friend</option>
+                          <option  value="Husband">Husband</option>
+                          <option  value="Wife">Wife</option>
+                          <option  value="Relative">Relative</option>
+                  </select>
+              </div>
+
+              <div class="form-group">
+                  <label for="RelationShip">Reason for this loan</label>
+                  <br/>
+                  <select *ngIf="this.ReasonforthisloanList != null && this.ReasonforthisloanList!=undefined" [(ngModel)]="Reasonforthisloan" required class="form-control-select" id="Reasonforthisloan" name="Reasonforthisloan">
+                          <option selected="" value="">---Reason--for--this--loan---</option>
+                          <option *ngFor="let item of this.ReasonforthisloanList" value="{{item.name}}">{{item.name}}</option>
+                  </select>
+              </div> -->
+
+                <div class="form-group">
+                    <div class="pfn-2">
+                        <label for="RelationShip">Relationship</label>
+                        <br/>
+                        <select [(ngModel)]="RelationShip" required class="form-control-divide-select" id="RelationShip" name="RelationShip">
+                          <option selected="" value="">---Relation-Ship---</option>
+                          <option value="Parent">Parent</option>
+                          <option  value="Brothers/Sisters">Brothers/Sisters</option>
+                          <option  value="Friend">Friend</option>
+                          <option  value="Husband">Husband</option>
+                          <option  value="Wife">Wife</option>
+                          <option  value="Relative">Relative</option>
+                  </select>
+                        <!-- <select (change)="this.onStateChange($event)" [(ngModel)]="CusState" required class="form-control-divide-select" id="State" name="State">
+                          <option selected="" value="">---Select--State---</option>
+                          <option *ngFor="let item of this.StateLists" value="{{item.id}}">{{item.name}}</option>
+                      </select> -->
+                    </div>
+                    <div class="pfn-2">
+                        <label for="RelationShip">Reason for this loan</label>
+                        <br/>
+                        <select *ngIf="this.ReasonforthisloanList != null && this.ReasonforthisloanList!=undefined" [(ngModel)]="Reasonforthisloan" required class="form-control-divide-select" id="Reasonforthisloan" name="Reasonforthisloan">
+                          <option selected="" value="">---Reason--for--this--loan---</option>
+                          <option *ngFor="let item of this.ReasonforthisloanList" value="{{item.name}}">{{item.name}}</option>
+                  </select>
+                        <!-- <select (change)="this.onCityChange($event)" [(ngModel)]="CusCity" required class="form-control-divide-select" id="City" name="City">
+                          <option selected="" value="">---Select--City---</option>
+                          <option *ngFor="let item of this.CityLists" value="{{item.id}}">{{item.name}}</option>
+                          </select> -->
+                    </div>
+                </div>
+
+                <div class="form-group" style="padding-top: 30px;">
+                    <p style="color: red;font-size: 15px;" *ngIf="EnableButton===false">Your IPPIS Number must be valid before processing the button</p>
+                    <input style="margin-top: 20px;" *ngIf="EnableButton" type="button" (click)="onContinue($event)" class="form-control-btn" value="Continue" />
+                </div>
+
+                <div class="form-group">
+                    <div class="acct-1">
+                    </div>
+                    <div class="acct-2">
+
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <style>
+        /* .swal2-confirm,
+      .swal2-styled, */
+        
+        .swal2-default-outline {
+            outline: none;
+            outline-color: transparent;
+            -webkit-tap-highlight-color: transparent;
+        }
+    </style>
+</div>
+<app-spinner></app-spinner>
+<router-outlet></router-outlet>

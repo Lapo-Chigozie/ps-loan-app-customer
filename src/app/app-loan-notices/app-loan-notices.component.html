@@ -1,0 +1,26 @@
+<div class="container_Content" *ngIf="this.AllCustomerHasBlocked">
+
+    <div class="content_123">
+
+        <div class="backgroundCenter">
+            <div style="margin-top:10px;text-align:center;">
+                <p>
+                    <img src="assets/images/{{ImageName}}" width="80" height="80" />
+                </p>
+                <p style="font-size: 25px;font-weight: 800;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;">Notices!</p>
+                <p style="font-size: 16px;font-weight: 400;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;">{{StatusMessge}}</p>
+
+                <p *ngIf="IsSessionActive" style="font-size: 19px;font-weight: 400;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;">
+                    <a style="font-size: 17px;font-weight: 400;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;" [routerLink]="['/dashboard']" routerLinkActive="router-link-active">Go to Dashboard</a>
+                </p>
+
+                <p *ngIf="IsSessionActive==false" style="font-size: 19px;font-weight: 400;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;">
+                    <a style="font-size: 17px;font-weight: 400;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;" [routerLink]="['/signin']" routerLinkActive="router-link-active">Log in to your Dashboard</a>
+                </p>
+            </div>
+        </div>
+
+    </div>
+</div>
+<app-spinner></app-spinner>
+<router-outlet></router-outlet>

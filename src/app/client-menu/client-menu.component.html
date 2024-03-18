@@ -1,0 +1,10 @@
+<nav class="nav-Container">
+    <ul class="ul-Container">
+        <li><a (click)="SetActive('Dashboard')" [ngClass]="GetActive('Dashboard')" [routerLink]="['/dashboard']" style="cursor: pointer;" routerLinkActive="router-link-active">Dashboard</a></li>
+        <li><a (click)="SetActive('NewLoan')" [ngClass]="GetActive('NewLoan')" style="cursor: pointer;" (click)="RequestLoan($event)">New Loan</a></li>
+        <li><a (click)="SetActive('LoanApplications')" [ngClass]="GetActive('LoanApplications')" style="cursor: pointer;" (click)="LoanApplications($event)">Loan Applications</a></li>
+        <li><a (click)="SetActive('ChangePassword')" [ngClass]="GetActive('ChangePassword')" style="cursor: pointer;" (click)="onChangePassword($event)">Change Password</a></li>
+        <li><a (click)="SetActive('MyProfile')" [ngClass]="GetActive('MyProfile')" style="cursor: pointer;" [routerLink]="['/appprofile']" routerLinkActive="router-link-active">My Profile</a> </li>
+        <!-- <li><a (click)="SetActive('ProfileEdit')" [ngClass]="GetActive('ProfileEdit')" style="cursor: pointer;" [routerLink]="['/appeditprofile']" routerLinkActive="router-link-active">Profile Edit</a></li> -->
+    </ul>
+</nav>

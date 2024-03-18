@@ -1,0 +1,119 @@
+<router-outlet></router-outlet>
+<!-- <app-new-loan-application></app-new-loan-application>
+<app-sign-in-acct></app-sign-in-acct> -->
+<div class="container_Content">
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+
+    <div class="content_1" style="border-top: transparent 0px solid;">
+        <h2>Loan Application Form</h2>
+        <p><span>Easily request for all Lapo loans and credit finanacing products</span></p>
+        <ul>
+            <li style="color:#000"><span style="color:#000;font-size: 16px;">Find eligible loans in seconds.</span></li>
+            <li style="color:#000"><span style="color:#000;font-size: 16px;">No collateral required.</span></li>
+            <li style="color:#000"><span style="color:#000;font-size: 16px;">Lapo credit is free to use</span></li>
+        </ul>
+        <p style="margin-top:0px;padding-bottom:15px;">
+            <button (click)="this.GotoLoan()" style="cursor:pointer;margin-bottom:px;">Apply Now</button>
+            <!-- routerLinkActive="router-link-active" <a [routerLink]="['newloanapplication']" routerLinkActive="router-link-active">Apply Now</a> -->
+        </p>
+    </div>
+</div>
+
+<div class="container-benefit">
+    <div class="Benefits-header">
+        <h2><span>Benefits</span></h2>
+    </div>
+    <div class="Benefits-details-contianer">
+        <div class="Benefits-details-1">
+            <div class="p-st">Flexible tenure up to</div>
+            <div class="p-snd">60</div>
+            <div class="p-last">months of repayment period.</div>
+        </div>
+        <div class="Benefits-details-1">
+            <div class="p-st"><span>As low as</span></div>
+            <div class="p-snd"><span>1.083% </span></div>
+            <div class="p-last"><span>interest rate per month.</span></div>
+        </div>
+        <div class="Benefits-details-1">
+            <div class="p-st"><span>Borrow up to</span></div>
+            <div class="p-snd"><span>₦20M</span></div>
+            <div class="p-last">naira personal loan with no security required</div>
+        </div>
+    </div>
+</div>
+
+<div class="container-rnd">
+    <div class="rnd-details-1">
+        <div class="p-st"><img src="../../assets/images/simplerateandterm-min.png" width="100" height="85" /></div>
+        <div class="p-snd">
+            Simple Repayment Terms And Rates
+        </div>
+        <div class="p-last">
+            There are no hidden charges, our repayment terms are clear and convenient, and you don’t need to have a cheque book.
+        </div>
+    </div>
+    <div class="rnd-details-1">
+        <div class="p-st"><span><img src="../../assets/images/hasslefree-min.png" width="100" height="80"/></span></div>
+        <div class="p-snd"><span>Hassle Free</span></div>
+        <div class="p-last"><span>Easy to use tools from anywhere. Instant cash immediately your loan is approved . No gimmicks, confusing terms or hidden charges.</span></div>
+    </div>
+    <div class="rnd-details-1">
+        <div class="p-st"><span><img src="../../assets/images/moneywhenyouneedit-min.png" width="100" height="80"/></span></div>
+        <div class="p-snd"><span>Instant Cash</span></div>
+        <div class="p-last">Whenever or wherever you need cash, we’re right there.</div>
+    </div>
+</div>
+
+<br/>
+<br/>
+<div class="container-Loans">
+    <h2 style=" font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;"><span style="text-emphasis-color: black;color: #fff; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;">Loans</span></h2>
+
+</div>
+
+<div class="container-Loans">
+    <div class="Loans-header">
+        <h2 style=" font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;"><span style=" font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;font-weight: 600;font-size:30px;color: #364156;">What you need to apply</span></h2>
+    </div>
+    <div class="Loans-details-contianer">
+        <div class="p-st" style=" font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;font-size: 16px;">
+            <p> Do you have an urgent need for cash to settle bills, take care of emergencies or grab an opportunity? Does payday seem so far and bills are piling up? Don’t worry! Our convenient, secure and instant loans have got you covered. Apply for a
+                loan now and get the funds in less than 3 hours.</p>
+
+            <p>
+                <b> Be a Government worker:</b> You should be employed and already working in one of the government public sectors in Nigeria. We are open to applications from Federal workers across the country and state workers within Lagos & Edo states.
+            </p>
+            <p>
+                <b> Have an active Account: </b> You need to provide your commercial bank account details. We need this to send your money to you should your loan request is approved.
+            </p>
+            <p>
+                <b> Be of Age : </b> 18 years and above is the loan eligibility age.
+            </p>
+            <p>
+                <b> Have valid IDs : </b> We only need you to upload
+                <br>
+                <b>(a.) Staff Id </b> <br>
+                <b>(b.) Payslip</b> <br>
+                <b> (d.) Passport photograph</b>.
+            </p>
+        </div>
+        <div class="p-st" style=" font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;font-size: 16px;">
+            <p style="text-align: center;">
+                <img src="assets/images/black-businesswoman-showing-report-to-client-102754878-d0217f09d11740c2aed254eae26616cf.jpg" height="270" width="500" />
+            </p>
+            <div class="container-Apply">
+                <div class="Apply-header">
+                    <span (click)="this.GotoLoan()"><a  style="cursor: pointer; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;background-color: #ff601a;">Apply Now</a></span>
+                    <!-- <span><a [routerLink]="['newloanapplication']" routerLinkActive="router-link-active">Apply Now</a></span> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

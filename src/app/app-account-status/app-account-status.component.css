@@ -1,0 +1,17 @@
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.backgroundCenter {
+    border: 0px solid;
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}
+
+body {
+    content: "";
+    display: table;
+    clear: both;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+}

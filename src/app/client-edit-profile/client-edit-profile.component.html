@@ -1,0 +1,68 @@
+<div class="Loanchart-title">
+    <h2>Edit Profile</h2>
+</div>
+
+<!-- <div class="Loanchart-chatAcct">
+
+</div> -->
+
+<div class="loan-list">
+    <div>
+        <h2 style="color: #000;">Personnel Details.</h2>
+        <!-- <br/>
+    <input class="form-control-btn " id="SiginBtn" value="View Profile Details" (click)="ViewProfileDetails($event)" /> -->
+    </div>
+    <div class="Profile-Details" style="overflow:auto;">
+
+        <p><b>First Name: </b> <input readonly style="margin-left:170px;width: 250px;" type="text" [(ngModel)]="FirstName" required class="form-control" name="FirstNam1" placeholder="Enter First Name" /> </p>
+
+        <p>
+            <b>Middle Name: </b> <input style="margin-left:153px;width:250px;" type="text" [(ngModel)]="Middle" class="form-control" name="MiddleName" placeholder="Enter Middle Name" />
+        </p>
+
+        <p> <b>Last Name: </b> <input readonly style="margin-left:174px;width: 250px;" type="text" [(ngModel)]="LastName" required class="form-control" name="LastName" placeholder="Enter Last Name" /> </p>
+
+        <input style="margin-left:90px;width: 250px;" type="hidden" [(ngModel)]="Age" class="form-control" name="Age" placeholder="Date Of Birth" required="" />
+        <!-- <span>{{this.Age}}</span> -->
+
+        <p>
+            <b>Gender: </b>
+            <select style="margin-left:195px;width: 290px;height: 35px;" [(ngModel)]="Gender" name="Gender" required class="form-control-select">
+              <option selected value="">---Select--Gender---</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+          </select>
+        </p>
+
+        <p>
+            <b>Marital Status: </b>
+            <select style="margin-left:155px;width:290px;height:35px;" [(ngModel)]="MarrintalStatus" name="MarrintalStatus" required class="form-control-select">
+                      <option selected="" value="">---Marital---Status---</option>
+                      <option value="Single">Single</option>
+                      <option value="Married">Married</option>
+                      <option value="Divorced">Divorced</option>
+          </select>
+        </p>
+
+        <p>
+            <b>Email Address: </b> <input style="margin-left:151px;width: 250px;" readonly type="text" [(ngModel)]="EmailAddress" required class="form-control" name="EmailAddress" placeholder="Enter Email Address" />
+        </p>
+
+        <p>
+            <b>Phone Number: </b> <input readonly style="margin-left:142px;width: 250px;" type="text" [(ngModel)]="PhoneNumber" required class="form-control" name="PhoneNumber" placeholder="Enter Phone Number" />
+        </p>
+        <p>
+            <b>Alt Phone Number (Optional): </b> <input style="margin-left:48px;width: 250px;" type="text" [(ngModel)]="AltPhoneNumber" required class="form-control" name="AltPhoneNumber" placeholder="Alt Phone Number" />
+        </p>
+        <p>
+            <b>Current Address: </b> <input style="margin-left:136px;width: 250px;" type="text" [(ngModel)]="CurrentAddress" required class="form-control" name="CurrentAddress" placeholder="Enter Current Address" />
+        </p>
+    </div>
+
+    <div style="text-align: right;">
+        <input class="form-control-btn" type="button" style="width: 150px;" id="SiginBtn" value="Save" (click)="SaveProfileDetails($event)" />
+    </div>
+    <!-- this.ProfileDetails.accountId this.ProfileDetails.id this.ProfileDetails.staff -->
+</div>
+<app-spinner></app-spinner>
+<router-outlet></router-outlet>

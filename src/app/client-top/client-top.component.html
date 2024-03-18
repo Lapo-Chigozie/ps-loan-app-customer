@@ -1,0 +1,21 @@
+<div class="ineardiv1">
+    <div class="logo_content">
+        <a [routerLink]="['/dashboard']" routerLinkActive="router-link-active">
+            <img src="../../assets/images/headerlogo.png" width="200" height="60" />
+        </a>
+    </div>
+
+    <div class="menu_content">
+        <div class="h_ul_div_2">
+            <p style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;">Customer Dashboard</p>
+        </div>
+        <div class="h_ul_div_2">
+            <ul class="h_ul_list_2">
+                <li>
+                    <span *ngIf="this.acctDetails!=undefined && this.acctDetails!=null" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-size:14px;font-weight:700;color:#000; ">Login User: {{this.acctDetails.FirstName}}</span>
+                    <button style="color:#c80912;font-size: 15px;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;margin-left: 50px;cursor: pointer;" class="app_loan_btn" (click)="clickSignInLink($event)">Sign Out</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
